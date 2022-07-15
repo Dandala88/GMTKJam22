@@ -5,7 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    public float moveScale;
+    Transform cam;
+    [SerializeField]
+    private float minSphereColliderSize;
+    [SerializeField]
+    private float maxSphereColliderSize;
+    [SerializeField]
+    private float maxAngularVelocityPower;
     [SerializeField]
     public float moveForce;
     [SerializeField]
@@ -14,14 +20,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Vector2 input;
 
+    private SphereCollider sphereCollider;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        sphereCollider = GetComponent<SphereCollider>();
+        rb.maxAngularVelocity = 10 * (maxAngularVelocityPower * maxAngularVelocityPower);
     }
 
     public void Move(Vector2 sentInput)
     {
-        Debug.Log(sentInput);
         input = sentInput;
     }
 
@@ -34,8 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 translatedInput = new Vector3(input.y, 0f, -input.x);
         Vector3 translatedInputMove = new Vector3(input.x, 0f, input.y);
-
-        rb.AddForce(translatedInputMove * moveForce * moveScale);
-        rb.AddTorque(translatedInput * moveForce);
+        translatedInput = Quaternion.AngleAxis(cam.rotation.eulerAngles.y, Vector3.up) * translatedInput;
+        rb.AddTorque(translatedInput * moveForce, ForceMode.Acceleration);
+        sphereCollider.radius = Mathf.Lerp(minSphereColliderSize, maxSphereColliderSize, input.magnitude);
     }
 }
