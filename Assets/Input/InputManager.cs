@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private PlayerController controller;
+    [SerializeField]
+    private PauseMenu pauseMenu;
 
     private PlayerInput playerInput;
 
@@ -29,6 +32,19 @@ public class InputManager : MonoBehaviour
         if (context.started)
         {
             controller.Jump();
+        }
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (!pauseMenu.isActiveAndEnabled)
+            {
+                Time.timeScale = 0;
+                pauseMenu.gameObject.SetActive(true);
+                playerInput.SwitchCurrentActionMap("Menu");
+            }
         }
     }
 }
