@@ -28,6 +28,9 @@ public class EndGoal : MonoBehaviour
         ParticleSystem cloneStart = null;
         while (t < 2)
         {
+            other.transform.position = cloneEnd.transform.position;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;//we can abstract all this and have the goals determine velocity on spawn but later...
+            other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             t += Time.deltaTime;
             if(t > 1)
                 other.transform.position = nextGoal.transform.position;
