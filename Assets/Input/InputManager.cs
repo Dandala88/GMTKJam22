@@ -2,23 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private PlayerController controller;
+    [SerializeField]
+    private PauseMenu pauseMenu;
+    [SerializeField]
+    private float keyboardFullSpeedHoldTime;
+    [SerializeField]
+    private float keyboardHoldSpeed;
+    [SerializeField]
+    private float keyboardNoHoldSpeed;
 
     private PlayerInput playerInput;
+    private bool keyboardHold;
+    private Vector2 keyboardInput;
+    private float keyboardHeld;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("Player");
+
+#if !UNITY_EDITOR
+        Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+#endif
+    }
+
+    private void Update()
+    {
+        float keyboardSpeed = keyboardNoHoldSpeed;
+        if (playerInput.currentControlScheme == "Keyboard + Mouse")
+        {
+            if (keyboardHold)
+            {
+                keyboardHeld += Time.deltaTime;
+                keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
+            }
+            else
+                keyboardHeld = 0;
+
+            controller.Move(keyboardInput * keyboardSpeed);
+        }
+
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (playerInput.currentControlScheme == "Keyboard + Mouse")
+        {
+            if ((context.started || context.performed) && playerInput.currentControlScheme == "Keyboard + Mouse")
+            {
+                keyboardInput = context.ReadValue<Vector2>();
+                keyboardHold = true;
+            }
+
+            if (context.canceled)
+            {
+                keyboardInput = Vector2.zero;
+                keyboardHold = false;
+            }
+        }
+        else
         {
             controller.Move(context.ReadValue<Vector2>());
         }
@@ -29,6 +78,19 @@ public class InputManager : MonoBehaviour
         if (context.started)
         {
             controller.Jump();
+        }
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (!pauseMenu.isActiveAndEnabled)
+            {
+                Time.timeScale = 0;
+                pauseMenu.gameObject.SetActive(true);
+                playerInput.SwitchCurrentActionMap("Menu");
+            }
         }
     }
 }
