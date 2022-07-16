@@ -568,7 +568,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659191899}
-  m_LocalRotation: {x: -0, y: 7.23e-43, z: -2.69e-43, w: 1}
+  m_LocalRotation: {x: -0, y: 1.030287e-13, z: -4.1078252e-14, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -924,8 +924,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962337104}
-  m_LocalRotation: {x: 0.16018224, y: 1.19e-43, z: -3.9e-44, w: 0.9870875}
-  m_LocalPosition: {x: 0.004, y: 25.68, z: -30}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890118, z: -0.0000000036379042, w: 0.9819564}
+  m_LocalPosition: {x: 0.004, y: 27.68, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1330,13 +1330,26 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200226051}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a7b18478523966b4c9aa7dbabba24c0f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4085365545091582050, guid: c3e30c1cf7aedc84393c4c3b7f618c1d, type: 3}
+--- !u!135 &1200226055
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200226051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.02
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1266016332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,8 +1458,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 962337106}
-  minSphereColliderSize: 0
+  minSphereColliderSize: 0.1
   maxSphereColliderSize: 0.866
+  shapeShiftSpeed: 0.01
   maxAngularVelocityPower: 10
   moveForce: 30
   jumpForce: 500
@@ -1885,7 +1899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 10, z: -30}
+  m_FollowOffset: {x: 0, y: 12, z: -30}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1900,7 +1914,7 @@ MonoBehaviour:
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 1
-    m_WaitTime: 0
+    m_WaitTime: 0.5
     m_RecenteringTime: 1
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
