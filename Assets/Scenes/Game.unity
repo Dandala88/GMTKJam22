@@ -7738,7 +7738,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9238477, y: 1}
+    m_SensorSize: {x: 2.2411168, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8261,7 +8261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextGoal: {fileID: 564437904}
-  ps: {fileID: 5810456701994250309, guid: 09c250035dbbcd248bd95a5c9d23e86b, type: 3}
+  ps: {fileID: 7978396853512459058, guid: 8619fb5fff4af984cbe8a4247b778658, type: 3}
 --- !u!64 &731273888
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8782,7 +8782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beginningStartGoal: {fileID: 917292801}
-  ps: {fileID: 5810456701994250309, guid: 09c250035dbbcd248bd95a5c9d23e86b, type: 3}
+  psDeath: {fileID: 7594032376547610340, guid: d81fa005d007987449b8aa39ef90f966, type: 3}
+  psSpawn: {fileID: 7978396853512459058, guid: 8619fb5fff4af984cbe8a4247b778658, type: 3}
 --- !u!1 &774829338
 GameObject:
   m_ObjectHideFlags: 0
@@ -9884,7 +9885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextGoal: {fileID: 1890579522}
-  ps: {fileID: 5810456701994250309, guid: 09c250035dbbcd248bd95a5c9d23e86b, type: 3}
+  ps: {fileID: 7978396853512459058, guid: 8619fb5fff4af984cbe8a4247b778658, type: 3}
 --- !u!64 &867269407
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11775,7 +11776,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962337104}
-  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0, y: 11.4, z: -136.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15412,7 +15413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextGoal: {fileID: 1890579522}
-  ps: {fileID: 5810456701994250309, guid: 09c250035dbbcd248bd95a5c9d23e86b, type: 3}
+  ps: {fileID: 7978396853512459058, guid: 8619fb5fff4af984cbe8a4247b778658, type: 3}
 --- !u!64 &1245083745
 MeshCollider:
   m_ObjectHideFlags: 0

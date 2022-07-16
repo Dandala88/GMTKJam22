@@ -20,7 +20,9 @@ public class DeathFloor : MonoBehaviour
     }
 
     [SerializeField]
-    private ParticleSystem ps;
+    private ParticleSystem psDeath;
+    [SerializeField]
+    private ParticleSystem psSpawn;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +35,7 @@ public class DeathFloor : MonoBehaviour
     private IEnumerator Spawn(Collider other)
     {
 
-        ParticleSystem cloneEnd = Instantiate(ps);
+        ParticleSystem cloneEnd = Instantiate(psDeath);
         cloneEnd.transform.position = other.transform.position;
         other.GetComponentInChildren<MeshRenderer>().enabled = false;
 
@@ -51,7 +53,7 @@ public class DeathFloor : MonoBehaviour
             {
                 if (cloneStart == null)
                 {
-                    cloneStart = Instantiate(ps);
+                    cloneStart = Instantiate(psSpawn);
                     cloneStart.transform.position = CurrentGoal.transform.position;
                 }
             }
