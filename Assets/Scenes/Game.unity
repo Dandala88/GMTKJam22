@@ -176,7 +176,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9441625, y: 1}
+    m_SensorSize: {x: 2.2411168, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -872,7 +872,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08890001, y: 0.08889999, z: 0.00018296298}
+  m_Size: {x: 0.09, y: 0.09, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0.00009148149}
 --- !u!1 &763980786
 GameObject:
@@ -927,7 +927,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9441625, y: 1}
+    m_SensorSize: {x: 2.2411168, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1610,7 +1610,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08890001, y: 0.08889999, z: 0.00018296298}
+  m_Size: {x: 0.09, y: 0.09, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0.00009148149}
 --- !u!54 &1197563443
 Rigidbody:
@@ -1861,7 +1861,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9441625, y: 1}
+    m_SensorSize: {x: 2.2411168, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2574,7 +2574,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9441625, y: 1}
+    m_SensorSize: {x: 2.2411168, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

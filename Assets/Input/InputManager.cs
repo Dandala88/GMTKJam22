@@ -26,39 +26,51 @@ public class InputManager : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("Player");
+
+#if !UNITY_EDITOR
+        Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+#endif
     }
 
     private void Update()
     {
         float keyboardSpeed = keyboardNoHoldSpeed;
-        if (keyboardHold)
+        if (playerInput.currentControlScheme == "Keyboard + Mouse")
         {
-            keyboardHeld += Time.deltaTime;
-            keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
-        }
-        else
-            keyboardHeld = 0;
+            if (keyboardHold)
+            {
+                keyboardHeld += Time.deltaTime;
+                keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
+            }
+            else
+                keyboardHeld = 0;
 
-        controller.Move(keyboardInput * keyboardSpeed);
+            controller.Move(keyboardInput * keyboardSpeed);
+        }
+
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        Debug.Log(context.phase);
-        if ((context.started || context.performed) && playerInput.currentControlScheme == "Keyboard + Mouse")
+        if (playerInput.currentControlScheme == "Keyboard + Mouse")
         {
-            keyboardInput = context.ReadValue<Vector2>();
-            keyboardHold = true;
-        }
+            if ((context.started || context.performed) && playerInput.currentControlScheme == "Keyboard + Mouse")
+            {
+                keyboardInput = context.ReadValue<Vector2>();
+                keyboardHold = true;
+            }
 
-        if (context.canceled && playerInput.currentControlScheme == "Keyboard + Mouse")
+            if (context.canceled)
+            {
+                keyboardInput = Vector2.zero;
+                keyboardHold = false;
+            }
+        }
+        else
         {
-            keyboardInput = Vector2.zero;
-            keyboardHold = false;
-        }
-
-        if (context.performed && playerInput.currentControlScheme != "Keyboard + Mouse")
             controller.Move(context.ReadValue<Vector2>());
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
