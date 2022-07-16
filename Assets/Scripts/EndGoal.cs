@@ -13,29 +13,37 @@ public class EndGoal : MonoBehaviour
     {
         if(other.transform.CompareTag("Player"))
         {
-            ParticleSystem clone = Instantiate(ps);
-            clone.transform.position = other.transform.position;
-            other.GetComponentInChildren<MeshRenderer>().enabled = false;
-            StartCoroutine(Spawn(other.transform));
+            StartCoroutine(Spawn(other));
         }
     }
 
-    private IEnumerator Spawn(Transform player)
+    private IEnumerator Spawn(Collider other)
     {
+
+        ParticleSystem cloneEnd = Instantiate(ps);
+        cloneEnd.transform.position = other.transform.position;
+        other.GetComponentInChildren<MeshRenderer>().enabled = false;
+
         float t = 0;
-        while(t < 2)
+        ParticleSystem cloneStart = null;
+        while (t < 2)
         {
             t += Time.deltaTime;
             if(t > 1)
-                player.position = nextGoal.transform.position;
-
-            if (t > 1.8)
+                other.transform.position = nextGoal.transform.position;
+            if (t > 1.7)
             {
-                ParticleSystem clone = Instantiate(ps);
-                clone.transform.position = nextGoal.transform.position;
+                if (cloneStart == null)
+                {
+                    cloneStart = Instantiate(ps);
+                    cloneStart.transform.position = nextGoal.transform.position;
+                }
             }
             yield return null;
         }
-        player.GetComponentInChildren<MeshRenderer>().enabled = true;
+        other.GetComponentInChildren<MeshRenderer>().enabled = true;
+        Destroy(cloneStart.gameObject);
+        Destroy(cloneEnd.gameObject);
+
     }
 }
