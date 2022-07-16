@@ -4,9 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI[] options;
@@ -16,29 +15,27 @@ public class MainMenu : MonoBehaviour
     Color selectedColor;
     [SerializeField]
     Color unselectedColor;
-
-    private PlayerInput playerInput;
+    [SerializeField]
+    PlayerInput playerInput;
 
     private int currentSelection;
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
-        playerInput.SwitchCurrentActionMap("Menu");
         SelectOption();
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            if(input.magnitude > 0)
+            if (input.magnitude > 0)
             {
                 currentSelection -= (int)input.y;
-                if(currentSelection >= options.Length)
+                if (currentSelection >= options.Length)
                     currentSelection = 0;
-                else if(currentSelection < 0)
+                else if (currentSelection < 0)
                     currentSelection = options.Length - 1;
                 SelectOption();
 
@@ -50,10 +47,17 @@ public class MainMenu : MonoBehaviour
     {
         if (context.started)
         {
-            switch(currentSelection)
+            switch (currentSelection)
             {
-                case 0: SceneManager.LoadScene(1, LoadSceneMode.Single); break;
-                case 1: Application.Quit(); Debug.Log("Quit Game"); break;
+                case 0:
+                    playerInput.SwitchCurrentActionMap("Player");
+                    Time.timeScale = 1;
+                    gameObject.SetActive(false);
+                    break;
+                case 1:
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene(0, LoadSceneMode.Single); 
+                    break;
             }
         }
     }
@@ -66,5 +70,4 @@ public class MainMenu : MonoBehaviour
             tm.color = unselectedColor;
         options[currentSelection].color = selectedColor;
     }
-
 }
