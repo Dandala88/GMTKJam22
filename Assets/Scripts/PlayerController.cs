@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float maxAngularVelocityPower;
     [SerializeField]
-    public float moveForce;
+    private float moveForce;
     [SerializeField]
-    public float jumpForce;
+    private float jumpForce;
 
     private Rigidbody rb;
     private Vector2 input;
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         Vector3 translatedInput = new Vector3(input.y, 0f, -input.x);
         translatedInput = Quaternion.AngleAxis(cam.rotation.eulerAngles.y, Vector3.up) * translatedInput;
         rb.AddTorque(translatedInput * moveForce, ForceMode.Acceleration);
+
         sphereCollider.radius = Mathf.Lerp(minSphereColliderSize, maxSphereColliderSize, input.magnitude);
     }
 }
