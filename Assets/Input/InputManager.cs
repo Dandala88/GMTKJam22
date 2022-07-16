@@ -36,26 +36,21 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         float keyboardSpeed = keyboardNoHoldSpeed;
-        if (playerInput.currentControlScheme == "Keyboard + Mouse")
+        if (keyboardHold)
         {
-            if (keyboardHold)
-            {
-                keyboardHeld += Time.deltaTime;
-                keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
-            }
-            else
-                keyboardHeld = 0;
-
-            controller.Move(keyboardInput * keyboardSpeed);
+            keyboardHeld += Time.deltaTime;
+            keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
         }
+        else
+            keyboardHeld = 0;
+
+        controller.Move(keyboardInput * keyboardSpeed);
 
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (playerInput.currentControlScheme == "Keyboard + Mouse")
-        {
-            if ((context.started || context.performed) && playerInput.currentControlScheme == "Keyboard + Mouse")
+            if (context.started || context.performed)
             {
                 keyboardInput = context.ReadValue<Vector2>();
                 keyboardHold = true;
@@ -66,11 +61,6 @@ public class InputManager : MonoBehaviour
                 keyboardInput = Vector2.zero;
                 keyboardHold = false;
             }
-        }
-        else
-        {
-            controller.Move(context.ReadValue<Vector2>());
-        }
     }
 
     public void Jump(InputAction.CallbackContext context)
