@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "0b73e6c3-cb65-4d31-baec-db4264624661",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -26,9 +26,57 @@
             ],
             "bindings": [
                 {
+                    "name": "",
+                    "id": "0ed25ff7-8970-492d-9ace-22c3cddfbec6",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57febc4f-49c6-4f00-a5d1-b631fa12e63c",
+                    "path": "<XInputController>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "4a217ab1-97ae-4a22-a3ba-d0b1e0071242",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "a0460807-ea84-44c3-9944-c17513a96103",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "eb9cf3c0-032e-4d02-b915-cf45879c0968",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "2D Vector",
-                    "id": "1136c931-a890-4667-a489-597f1adc4da7",
-                    "path": "2DVector(mode=2)",
+                    "id": "3c73d9e8-177f-43e8-a370-1c57aa9d6478",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -38,7 +86,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "a543c258-be8c-4d23-a661-cbfbea4d9119",
+                    "id": "29364f02-c02c-4729-a977-b8ab5a119d76",
                     "path": "<XInputController>/leftStick/up",
                     "interactions": "",
                     "processors": "",
@@ -49,7 +97,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "6ccb1acb-1f85-4c42-b77d-2ce7f53fc4c0",
+                    "id": "70f27b73-a1c6-4f64-bf88-6e77818af3bf",
                     "path": "<XInputController>/leftStick/down",
                     "interactions": "",
                     "processors": "",
@@ -60,7 +108,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "3f65e50f-5f14-4044-9062-af92910b4f38",
+                    "id": "2dc50a80-7d9d-4731-8a49-2eb31399a139",
                     "path": "<XInputController>/leftStick/left",
                     "interactions": "",
                     "processors": "",
@@ -71,7 +119,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "a3037fbf-6a65-432c-8cbf-530bfd380762",
+                    "id": "a9b4e152-fc45-40da-a36d-367c30773731",
                     "path": "<XInputController>/leftStick/right",
                     "interactions": "",
                     "processors": "",
@@ -82,12 +130,12 @@
                 },
                 {
                     "name": "",
-                    "id": "0ed25ff7-8970-492d-9ace-22c3cddfbec6",
+                    "id": "cd53db17-7231-4afc-a4a0-c6f6ab8797cb",
                     "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Xbox Controller",
-                    "action": "Jump",
+                    "groups": "",
+                    "action": "Confirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

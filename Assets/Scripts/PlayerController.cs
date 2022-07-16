@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 translatedInput = new Vector3(input.y, 0f, -input.x);
-        Vector3 translatedInputMove = new Vector3(input.x, 0f, input.y);
         translatedInput = Quaternion.AngleAxis(cam.rotation.eulerAngles.y, Vector3.up) * translatedInput;
         rb.AddTorque(translatedInput * moveForce, ForceMode.Acceleration);
         sphereCollider.radius = Mathf.Lerp(minSphereColliderSize, maxSphereColliderSize, input.magnitude);

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: eda753801b7f41f4ea409d906c0579fb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rigamesh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e82365b508dc8c94e813951e00562632, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
