@@ -4,11 +4,38 @@ using UnityEngine;
 
 public class EndGoal : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField]
+    StartGoal nextGoal;
+    [SerializeField]
+    private ParticleSystem ps;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.transform.CompareTag("Player"))
+        if(other.transform.CompareTag("Player"))
         {
-            Debug.Log(collision.transform.name);
+            ParticleSystem clone = Instantiate(ps);
+            clone.transform.position = other.transform.position;
+            other.GetComponentInChildren<MeshRenderer>().enabled = false;
+            StartCoroutine(Spawn(other.transform));
         }
+    }
+
+    private IEnumerator Spawn(Transform player)
+    {
+        float t = 0;
+        while(t < 2)
+        {
+            t += Time.deltaTime;
+            if(t > 1)
+                player.position = nextGoal.transform.position;
+
+            if (t > 1.8)
+            {
+                ParticleSystem clone = Instantiate(ps);
+                clone.transform.position = nextGoal.transform.position;
+            }
+            yield return null;
+        }
+        player.GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 }
