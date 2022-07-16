@@ -568,7 +568,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659191899}
-  m_LocalRotation: {x: -0, y: 0.0000000058774834, z: -0.000000002350993, w: 1}
+  m_LocalRotation: {x: -0, y: 1.030287e-13, z: -4.1078252e-14, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -924,7 +924,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962337104}
-  m_LocalRotation: {x: 0.18910751, y: 0.000000025106148, z: -0.000000004835002, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890118, z: -0.0000000036379042, w: 0.9819564}
   m_LocalPosition: {x: 0.004, y: 27.68, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1447,10 +1447,10 @@ MonoBehaviour:
   cam: {fileID: 962337106}
   minSphereColliderSize: 0.1
   maxSphereColliderSize: 0.866
-  shapeShiftSpeed: 0.01
+  shapeShiftSpeed: 1
   maxAngularVelocityPower: 10
   moveForce: 30
-  jumpForce: 500
+  jumpForce: 35
 --- !u!4 &1492604846
 Transform:
   m_ObjectHideFlags: 0
@@ -1476,7 +1476,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492604844}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 1
   m_UseGravity: 1
