@@ -8,12 +8,16 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private PlayerController controller;
+
     [SerializeField]
     private PauseMenu pauseMenu;
+
     [SerializeField]
     private float keyboardFullSpeedHoldTime;
+
     [SerializeField]
     private float keyboardHoldSpeed;
+
     [SerializeField]
     private float keyboardNoHoldSpeed;
 
@@ -29,7 +33,7 @@ public class InputManager : MonoBehaviour
 
 #if !UNITY_EDITOR
         Cursor.lockState = CursorLockMode.Locked;
-    Cursor.visible = false;
+        Cursor.visible = false;
 #endif
     }
 
@@ -41,21 +45,27 @@ public class InputManager : MonoBehaviour
             if (keyboardHold)
             {
                 keyboardHeld += Time.deltaTime;
-                keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
+                keyboardSpeed = Mathf.Lerp(
+                    keyboardNoHoldSpeed,
+                    keyboardHoldSpeed,
+                    keyboardHeld / keyboardFullSpeedHoldTime
+                );
             }
             else
                 keyboardHeld = 0;
 
-            controller.Move(keyboardInput * keyboardSpeed);
+            controller.Move(keyboardInput);
         }
-
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         if (playerInput.currentControlScheme == "Keyboard + Mouse")
         {
-            if ((context.started || context.performed) && playerInput.currentControlScheme == "Keyboard + Mouse")
+            if (
+                (context.started || context.performed)
+                && playerInput.currentControlScheme == "Keyboard + Mouse"
+            )
             {
                 keyboardInput = context.ReadValue<Vector2>();
                 keyboardHold = true;
@@ -89,6 +99,7 @@ public class InputManager : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pauseMenu.gameObject.SetActive(true);
+                pauseMenu.onPause();
                 playerInput.SwitchCurrentActionMap("Menu");
             }
         }

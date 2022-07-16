@@ -8,21 +8,26 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI[] options;
-    [SerializeField]
-    Transform select;
-    [SerializeField]
     Color selectedColor;
+
     [SerializeField]
     Color unselectedColor;
+
     [SerializeField]
     PlayerInput playerInput;
 
     private int currentSelection;
 
+    private ButtonGroup buttonManager;
+
     private void Awake()
     {
-        SelectOption();
+        buttonManager = GetComponentInChildren<ButtonGroup>();
+    }
+
+    public void onPause()
+    {
+        buttonManager.selectInitalButton();
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -30,15 +35,14 @@ public class PauseMenu : MonoBehaviour
         if (context.started)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            if (input.magnitude > 0)
-            {
-                currentSelection -= (int)input.y;
-                if (currentSelection >= options.Length)
-                    currentSelection = 0;
-                else if (currentSelection < 0)
-                    currentSelection = options.Length - 1;
-                SelectOption();
 
+            if (input.y < 0)
+            {
+                buttonManager.next();
+            }
+            else if (input.y > 0)
+            {
+                buttonManager.previous();
             }
         }
     }
@@ -50,24 +54,25 @@ public class PauseMenu : MonoBehaviour
             switch (currentSelection)
             {
                 case 0:
-                    playerInput.SwitchCurrentActionMap("Player");
-                    Time.timeScale = 1;
-                    gameObject.SetActive(false);
+                    unpause();
                     break;
                 case 1:
-                    Time.timeScale = 1;
-                    SceneManager.LoadScene(0, LoadSceneMode.Single); 
+                    returnToTitle();
                     break;
             }
         }
     }
 
-    private void SelectOption()
+    public void unpause()
     {
-        select.position = options[currentSelection].transform.position;
+        playerInput.SwitchCurrentActionMap("Player");
+        Time.timeScale = 1;
+        gameObject.SetActive(false);
+    }
 
-        foreach (TextMeshProUGUI tm in options)
-            tm.color = unselectedColor;
-        options[currentSelection].color = selectedColor;
+    public void returnToTitle()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
