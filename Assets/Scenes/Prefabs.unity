@@ -2179,6 +2179,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1131639693292410871, guid: 8f578c59b9064a74a8be8450b4d6597c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d190809c7c39c34fbbd500c9a3e0fdf, type: 2}
     - target: {fileID: 1491984769070839330, guid: 8f578c59b9064a74a8be8450b4d6597c, type: 3}
       propertyPath: m_Name
       value: Lamp
@@ -2771,7 +2775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916411159031733909, guid: 847cb4762b6a2e245be184a39dc30649, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6916411159031733909, guid: 847cb4762b6a2e245be184a39dc30649, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2893,7 +2897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 135475803522432092, guid: 995b413165695b444a2ace688ddd1fba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.85
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 135475803522432092, guid: 995b413165695b444a2ace688ddd1fba, type: 3}
       propertyPath: m_LocalPosition.z
