@@ -1346,6 +1346,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d781654953593c045916f9c97d495945, type: 3}
+--- !u!1001 &2231069139161330645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1312570997810942580, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_Name
+      value: Casino Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836590081699219662, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87109e660edd4c046b3eef4bcb0e9745, type: 3}
 --- !u!1001 &3149327248877657223
 PrefabInstance:
   m_ObjectHideFlags: 0
