@@ -1789,8 +1789,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2054283369}
-  - component: {fileID: 2054283367}
   - component: {fileID: 2054283370}
+  - component: {fileID: 2054283367}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged

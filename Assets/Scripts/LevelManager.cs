@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public List<string> scores;
+    public List<float> scores;
 
     private void OnEnable()
     {
@@ -16,8 +16,11 @@ public class LevelManager : MonoBehaviour
         EndGoal.OnCleared -= UpdateScore;
     }
 
-    private void UpdateScore(int level, string score)
+    private void UpdateScore(int level, float score)
     {
+        string playerPrefsKey = "Level_" + level;
+        if (PlayerPrefs.GetFloat(playerPrefsKey) > score)
+            PlayerPrefs.SetFloat(playerPrefsKey, score);
         scores[level] = score;
     }
 

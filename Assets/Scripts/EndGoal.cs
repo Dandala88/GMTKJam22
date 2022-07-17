@@ -11,7 +11,7 @@ public class EndGoal : MonoBehaviour
     [SerializeField]
     private ParticleSystem ps;
 
-    public delegate void ClearedAction(int level, string score);
+    public delegate void ClearedAction(int level, float score);
     public static event ClearedAction OnCleared; 
     private AudioSource a;
 
@@ -36,7 +36,7 @@ public class EndGoal : MonoBehaviour
         cloneEnd.transform.position = other.transform.position;
         other.GetComponentInChildren<MeshRenderer>().enabled = false;
 
-        OnCleared.Invoke(level, HUD.timer.ToString());
+        OnCleared.Invoke(level, HUD.timer);
         HUD.pauseTime = true;
         HUD.ResetTime();
 
