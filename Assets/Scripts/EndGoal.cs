@@ -28,10 +28,7 @@ public class EndGoal : MonoBehaviour
         if(other.transform.CompareTag("Player"))
         {
             a.PlayOneShot(a.clip);
-            if (!creditsGoal)
-                StartCoroutine(Spawn(other));
-            else
-                SceneManager.LoadScene(2, LoadSceneMode.Single);
+            StartCoroutine(Spawn(other));
         }
     }
 
@@ -45,6 +42,12 @@ public class EndGoal : MonoBehaviour
         OnCleared.Invoke(level, HUD.timer);
         HUD.pauseTime = true;
         HUD.ResetTime();
+
+        if (creditsGoal)
+        {
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
+            StopAllCoroutines();
+        }
 
         float t = 0;
         ParticleSystem cloneStart = null;

@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     private int currentSelection;
     private ButtonGroup buttonManager;
 
-    private void Awake()
+    private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("Menu");
