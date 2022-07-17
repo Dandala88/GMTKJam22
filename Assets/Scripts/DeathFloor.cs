@@ -2,16 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndGoal : MonoBehaviour
+public class DeathFloor : MonoBehaviour
 {
     [SerializeField]
-    StartGoal nextGoal;
+    private StartGoal beginningStartGoal;
+
+    public static StartGoal currentGoal;
+
+    private StartGoal CurrentGoal
+    {
+        get { return currentGoal; }
+    }
+
+    private void Awake()
+    {
+        currentGoal = beginningStartGoal;
+    }
+
     [SerializeField]
-    private ParticleSystem ps;
+    private ParticleSystem psDeath;
+    [SerializeField]
+    private ParticleSystem psSpawn;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Player"))
         {
             StartCoroutine(Spawn(other));
         }
@@ -20,7 +35,7 @@ public class EndGoal : MonoBehaviour
     private IEnumerator Spawn(Collider other)
     {
 
-        ParticleSystem cloneEnd = Instantiate(ps);
+        ParticleSystem cloneEnd = Instantiate(psDeath);
         cloneEnd.transform.position = other.transform.position;
         other.GetComponentInChildren<MeshRenderer>().enabled = false;
 
@@ -32,19 +47,18 @@ public class EndGoal : MonoBehaviour
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;//we can abstract all this and have the goals determine velocity on spawn but later...
             other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             t += Time.deltaTime;
-            if(t > 1)
-                other.transform.position = nextGoal.transform.position;
+            if (t > 1)
+                other.transform.position = CurrentGoal.transform.position;
             if (t > 1.7)
             {
                 if (cloneStart == null)
                 {
-                    cloneStart = Instantiate(ps);
-                    cloneStart.transform.position = nextGoal.transform.position;
+                    cloneStart = Instantiate(psSpawn);
+                    cloneStart.transform.position = CurrentGoal.transform.position;
                 }
             }
             yield return null;
         }
-        DeathFloor.currentGoal = nextGoal;
         other.GetComponentInChildren<MeshRenderer>().enabled = true;
         Destroy(cloneStart.gameObject);
         Destroy(cloneEnd.gameObject);
