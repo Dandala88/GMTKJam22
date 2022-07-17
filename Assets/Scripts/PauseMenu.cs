@@ -71,10 +71,11 @@ public class PauseMenu : MonoBehaviour
     public void setPauseMenuActive()
     {
         scoreSubMenu.SetActive(false);
-        pauseSubMenu.SetActive(true);
 
         buttonManager = pauseSubMenu.GetComponent<ButtonGroup>();
         buttonManager.selectInitalButton();
+
+        pauseSubMenu.SetActive(true);
     }
 
     public void unpause()
