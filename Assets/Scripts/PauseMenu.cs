@@ -7,17 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public DeathFloor deathFloor;
 
-    [SerializeField]
-    TextMeshProUGUI[] options;
-    [SerializeField]
-    Transform select;
-    [SerializeField]
-    Color selectedColor;
-    [SerializeField]
-    Color unselectedColor;
     [SerializeField]
     PlayerInput playerInput;
 
@@ -25,17 +16,22 @@ public class PauseMenu : MonoBehaviour
 
     private int currentSelection;
 
-    private void Awake()
+    private ButtonGroup buttonManager;
+    private GameObject scoreSubMenu;
+    private GameObject pauseSubMenu;
+
+    public void Awake()
+    {
+        pauseSubMenu = transform.Find("Canvas/MainMenu").gameObject;
+        scoreSubMenu = transform.Find("Canvas/ScoresMenu").gameObject;
+    }
+
+    public void onPause()
     {
         scoresMenu = GetComponentInChildren<ScoresMenu>();
         scoresMenu.gameObject.SetActive(false);
-        SelectOption();
-    }
-
-    private void OnEnable()
-    {
-        currentSelection = 0;
-        SelectOption();
+        buttonManager = GetComponentInChildren<ButtonGroup>();
+        buttonManager.selectInitalButton();
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -43,15 +39,14 @@ public class PauseMenu : MonoBehaviour
         if (context.started)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            if (input.magnitude > 0)
-            {
-                currentSelection -= (int)input.y;
-                if (currentSelection >= options.Length)
-                    currentSelection = 0;
-                else if (currentSelection < 0)
-                    currentSelection = options.Length - 1;
-                SelectOption();
 
+            if (input.y < 0)
+            {
+                buttonManager.next();
+            }
+            else if (input.y > 0)
+            {
+                buttonManager.previous();
             }
         }
     }
@@ -60,58 +55,50 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.started)
         {
-            if (scoresMenu.gameObject.activeSelf)
-            {
-                HideShowText(true);
-                scoresMenu.gameObject.SetActive(false);
-                currentSelection = 1;
-                SelectOption();
-            }
-            else
-            {
-
-                switch (currentSelection)
-                {
-                    case 0:
-                        playerInput.SwitchCurrentActionMap("Player");
-                        Time.timeScale = 1;
-                        gameObject.SetActive(false);
-                        deathFloor.ResetPlayer();
-                        break;
-                    case 1:
-                        HideShowText(false);
-                        scoresMenu.gameObject.SetActive(true);
-                        break;
-                    case 2:
-                        playerInput.SwitchCurrentActionMap("Player");
-                        Time.timeScale = 1;
-                        gameObject.SetActive(false);
-                        break;
-                    case 3:
-                        Time.timeScale = 1;
-                        SceneManager.LoadScene(0, LoadSceneMode.Single);
-                        break;
-                }
-            }
+            SelectOption();
         }
     }
 
-    private void HideShowText(bool show)
+    public void setScoreMenuActive()
     {
-        foreach (TextMeshProUGUI t in options)
-            t.enabled = show;
-        select.gameObject.SetActive(show);
+        pauseSubMenu.SetActive(false);
+        scoreSubMenu.SetActive(true);
+
+        buttonManager = scoreSubMenu.GetComponent<ButtonGroup>();
+        buttonManager.selectInitalButton();
+    }
+
+    public void setPauseMenuActive()
+    {
+        scoreSubMenu.SetActive(false);
+        pauseSubMenu.SetActive(true);
+
+        buttonManager = pauseSubMenu.GetComponent<ButtonGroup>();
+        buttonManager.selectInitalButton();
+    }
+
+    public void unpause()
+    {
+        playerInput.SwitchCurrentActionMap("Player");
+        Time.timeScale = 1;
+        scoresMenu.gameObject.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void resetAndUpause()
+    {
+        deathFloor.ResetPlayer();
+        unpause();
+    }
+
+    public void returnToTitle()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     private void SelectOption()
     {
-        if (!scoresMenu.gameObject.activeSelf)
-        {
-            select.position = options[currentSelection].transform.position;
-
-            foreach (TextMeshProUGUI tm in options)
-                tm.color = unselectedColor;
-            options[currentSelection].color = selectedColor;
-        }
+        buttonManager.selectActiveButton();
     }
 }

@@ -30,8 +30,16 @@ public class PlayerController : MonoBehaviour
 
     private SphereCollider sphereCollider;
 
+    private bool isRolling;
+
+    public bool getRollingStatus()
+    {
+        return isRolling;
+    }
+
     private void Awake()
     {
+        isRolling = false;
         rb = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
         rb.maxAngularVelocity = 10 * (maxAngularVelocityPower * maxAngularVelocityPower);
@@ -63,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         //Javascript people be like; Check if velocity and target direction and the same and that the key board is active.
         //If so, the target for the lerp is set to the max size. Else it is set for the minimum size. Helps give more of the corner physics when turning around
+
         float targetRadius =
             (
                 translatedInput.magnitude > .1
@@ -79,5 +88,7 @@ public class PlayerController : MonoBehaviour
             targetRadius,
             shapeShiftSpeed * Time.deltaTime
         );
+        isRolling = Mathf.Abs(sphereCollider.radius - maxSphereColliderSize) < .05;
+        ;
     }
 }

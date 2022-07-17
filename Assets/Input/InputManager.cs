@@ -8,12 +8,16 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private PlayerController controller;
+
     [SerializeField]
     private PauseMenu pauseMenu;
+
     [SerializeField]
     private float keyboardFullSpeedHoldTime;
+
     [SerializeField]
     private float keyboardHoldSpeed;
+
     [SerializeField]
     private float keyboardNoHoldSpeed;
 
@@ -29,38 +33,30 @@ public class InputManager : MonoBehaviour
 
 #if !UNITY_EDITOR
         Cursor.lockState = CursorLockMode.Locked;
-    Cursor.visible = false;
+        Cursor.visible = false;
 #endif
     }
 
     private void Update()
     {
         float keyboardSpeed = keyboardNoHoldSpeed;
-        if (keyboardHold)
-        {
-            keyboardHeld += Time.deltaTime;
-            keyboardSpeed = Mathf.Lerp(keyboardNoHoldSpeed, keyboardHoldSpeed, keyboardHeld / keyboardFullSpeedHoldTime);
-        }
-        else
-            keyboardHeld = 0;
 
-        controller.Move(keyboardInput * keyboardSpeed);
-
+        controller.Move(keyboardInput);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-            if (context.started || context.performed)
-            {
-                keyboardInput = context.ReadValue<Vector2>();
-                keyboardHold = true;
-            }
+        if (context.started || context.performed)
+        {
+            keyboardInput = context.ReadValue<Vector2>();
+            keyboardHold = true;
+        }
 
-            if (context.canceled)
-            {
-                keyboardInput = Vector2.zero;
-                keyboardHold = false;
-            }
+        if (context.canceled)
+        {
+            keyboardInput = Vector2.zero;
+            keyboardHold = false;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -79,6 +75,7 @@ public class InputManager : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pauseMenu.gameObject.SetActive(true);
+                pauseMenu.onPause();
                 playerInput.SwitchCurrentActionMap("Menu");
             }
         }

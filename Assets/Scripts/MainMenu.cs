@@ -10,52 +10,49 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI[] options;
+
     [SerializeField]
     Transform select;
+
     [SerializeField]
     Color selectedColor;
+
     [SerializeField]
     Color unselectedColor;
 
     private PlayerInput playerInput;
 
     private int currentSelection;
+    private ButtonGroup buttonManager;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("Menu");
-        SelectOption();
+        buttonManager = GetComponentInChildren<ButtonGroup>();
+        buttonManager.selectInitalButton();
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             Vector2 input = context.ReadValue<Vector2>();
-            if(input.magnitude > 0)
-            {
-                currentSelection -= (int)input.y;
-                if(currentSelection >= options.Length)
-                    currentSelection = 0;
-                else if(currentSelection < 0)
-                    currentSelection = options.Length - 1;
-                SelectOption();
 
+            if (input.y < 0)
+            {
+                buttonManager.next();
+            }
+            else if (input.y > 0)
+            {
+                buttonManager.previous();
             }
         }
     }
 
     public void Confirm(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            switch(currentSelection)
-            {
-                case 0: SceneManager.LoadScene(1, LoadSceneMode.Single); break;
-                case 1: Application.Quit(); Debug.Log("Quit Game"); break;
-            }
-        }
+        buttonManager.selectActiveButton();
     }
 
     private void SelectOption()
@@ -67,4 +64,14 @@ public class MainMenu : MonoBehaviour
         options[currentSelection].color = selectedColor;
     }
 
+    public void loadGame()
+    {
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
 }
