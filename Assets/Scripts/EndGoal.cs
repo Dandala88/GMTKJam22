@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGoal : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class EndGoal : MonoBehaviour
     StartGoal nextGoal;
     [SerializeField]
     private ParticleSystem ps;
+    [SerializeField]
+    private bool creditsGoal;
 
     public delegate void ClearedAction(int level, float score);
     public static event ClearedAction OnCleared; 
@@ -25,7 +28,10 @@ public class EndGoal : MonoBehaviour
         if(other.transform.CompareTag("Player"))
         {
             a.PlayOneShot(a.clip);
-            StartCoroutine(Spawn(other));
+            if (!creditsGoal)
+                StartCoroutine(Spawn(other));
+            else
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
         }
     }
 
