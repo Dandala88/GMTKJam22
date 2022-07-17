@@ -18,14 +18,18 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler
 
     public void setActive()
     {
-        outline.enabled = true;
-        text.color = new Color32(240, 85, 38, 255);
+        if(outline != null)
+            outline.enabled = true;
+        if(text != null)
+            text.color = new Color32(240, 85, 38, 255);
     }
 
     public void setInactive()
     {
-        outline.enabled = false;
-        text.color = Color.white;
+        if (outline != null)
+            outline.enabled = false;
+        if (text != null)
+            text.color = Color.white;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
