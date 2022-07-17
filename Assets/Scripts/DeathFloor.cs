@@ -28,11 +28,11 @@ public class DeathFloor : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            StartCoroutine(Spawn(other));
+            StartCoroutine(Spawn(other.gameObject));
         }
     }
 
-    private IEnumerator Spawn(Collider other)
+    private IEnumerator Spawn(GameObject other)
     {
 
         ParticleSystem cloneEnd = Instantiate(psDeath);
@@ -60,8 +60,16 @@ public class DeathFloor : MonoBehaviour
             yield return null;
         }
         other.GetComponentInChildren<MeshRenderer>().enabled = true;
+        HUD.ResetTime();
         Destroy(cloneStart.gameObject);
         Destroy(cloneEnd.gameObject);
 
+    }
+
+    public void ResetPlayer()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+
+        StartCoroutine(Spawn(player.gameObject));
     }
 }

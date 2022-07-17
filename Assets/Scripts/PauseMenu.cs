@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+
+    public DeathFloor deathFloor;
+
     [SerializeField]
     TextMeshProUGUI[] options;
     [SerializeField]
@@ -61,28 +64,34 @@ public class PauseMenu : MonoBehaviour
             {
                 HideShowText(true);
                 scoresMenu.gameObject.SetActive(false);
-                currentSelection = 0;
+                currentSelection = 1;
                 SelectOption();
             }
-
-            switch (currentSelection)
+            else
             {
-                case 0:
-                    Debug.Log("restart level");
-                    break;
-                case 1:
-                    HideShowText(false);
-                    scoresMenu.gameObject.SetActive(true);
-                    break;
-                case 2:
-                    playerInput.SwitchCurrentActionMap("Player");
-                    Time.timeScale = 1;
-                    gameObject.SetActive(false);
-                    break;
-                case 3:
-                    Time.timeScale = 1;
-                    SceneManager.LoadScene(0, LoadSceneMode.Single);
-                    break;
+
+                switch (currentSelection)
+                {
+                    case 0:
+                        playerInput.SwitchCurrentActionMap("Player");
+                        Time.timeScale = 1;
+                        gameObject.SetActive(false);
+                        deathFloor.ResetPlayer();
+                        break;
+                    case 1:
+                        HideShowText(false);
+                        scoresMenu.gameObject.SetActive(true);
+                        break;
+                    case 2:
+                        playerInput.SwitchCurrentActionMap("Player");
+                        Time.timeScale = 1;
+                        gameObject.SetActive(false);
+                        break;
+                    case 3:
+                        Time.timeScale = 1;
+                        SceneManager.LoadScene(0, LoadSceneMode.Single);
+                        break;
+                }
             }
         }
     }
