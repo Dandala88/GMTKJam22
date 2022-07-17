@@ -24,10 +24,28 @@ public class LevelManager : MonoBehaviour
     private void UpdateScore(int level, float score)
     {
         string playerPrefsKey = "Level_" + level;
-        var playerPrefs = PlayerPrefs.GetFloat(playerPrefsKey);
-        if (PlayerPrefs.GetFloat(playerPrefsKey) > score || !PlayerPrefs.HasKey(playerPrefsKey))
+        if(PlayerPrefs.HasKey(playerPrefsKey))
+        {
+            float storedScore = PlayerPrefs.GetFloat(playerPrefsKey);
+            float best = 0f;
+            if (storedScore > score)
+            {
+                PlayerPrefs.SetFloat(playerPrefsKey, score);
+                best = score;
+            }
+            else
+            {
+                best = storedScore;
+            }
+
+            scores[level] = best;
+        }
+        else
+        {
             PlayerPrefs.SetFloat(playerPrefsKey, score);
-        scores[level] = score;
+            scores[level] = score;
+        }
+
     }
 
     private void InitializeScores()
