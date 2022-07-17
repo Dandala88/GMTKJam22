@@ -6,6 +6,8 @@ public class DeathFloor : MonoBehaviour
 {
     [SerializeField]
     private StartGoal beginningStartGoal;
+    [SerializeField]
+    PlayerController playerController;
 
     public static StartGoal currentGoal;
 
@@ -14,20 +16,24 @@ public class DeathFloor : MonoBehaviour
         get { return currentGoal; }
     }
 
-    private void Awake()
-    {
-        currentGoal = beginningStartGoal;
-    }
-
     [SerializeField]
     private ParticleSystem psDeath;
     [SerializeField]
     private ParticleSystem psSpawn;
+    private AudioSource a;
+
+    private void Awake()
+    {
+
+        a = GetComponent<AudioSource>();
+        currentGoal = beginningStartGoal;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
+            a.PlayOneShot(a.clip);
             StartCoroutine(Spawn(other.gameObject));
         }
     }
@@ -68,8 +74,7 @@ public class DeathFloor : MonoBehaviour
 
     public void ResetPlayer()
     {
-        PlayerController player = FindObjectOfType<PlayerController>();
 
-        StartCoroutine(Spawn(player.gameObject));
+        StartCoroutine(Spawn(playerController.gameObject));
     }
 }
