@@ -45,6 +45,7 @@ public class EndGoal : MonoBehaviour
 
         if (creditsGoal)
         {
+            yield return new WaitForSeconds(1);
             SceneManager.LoadScene(2, LoadSceneMode.Single);
             StopAllCoroutines();
         }
