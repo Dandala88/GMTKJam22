@@ -763,6 +763,17 @@ Transform:
   m_Father: {fileID: 1663246478}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 179.847, z: 0}
+--- !u!114 &69931947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3376941141825352255, guid: 96c220e6e5277de4e872f8e18ab7dd34, type: 3}
+  m_PrefabInstance: {fileID: 357841753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a426c53b8e889a45b7fc6805d8bf68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &96008221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4705,7 +4716,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659191899}
-  m_LocalRotation: {x: -0, y: -6.560086e-12, z: 2.623901e-12, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5502,7 +5513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a4545ce059c86469a004ea9148fc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beginningStartGoal: {fileID: 0}
+  beginningStartGoal: {fileID: 69931947}
+  playerController: {fileID: 1492604845}
   psDeath: {fileID: 7594032376547610340, guid: d81fa005d007987449b8aa39ef90f966, type: 3}
   psSpawn: {fileID: 7978396853512459058, guid: 8619fb5fff4af984cbe8a4247b778658, type: 3}
 --- !u!82 &772782773
@@ -6871,7 +6883,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962337104}
-  m_LocalRotation: {x: 0.18910751, y: -0.00000001888467, z: 0.0000000036368548, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.05, y: 11.28, z: -120.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

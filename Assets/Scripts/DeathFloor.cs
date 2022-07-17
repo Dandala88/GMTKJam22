@@ -6,6 +6,8 @@ public class DeathFloor : MonoBehaviour
 {
     [SerializeField]
     private StartGoal beginningStartGoal;
+    [SerializeField]
+    PlayerController playerController;
 
     public static StartGoal currentGoal;
 
@@ -72,8 +74,7 @@ public class DeathFloor : MonoBehaviour
 
     public void ResetPlayer()
     {
-        PlayerController player = FindObjectOfType<PlayerController>();
 
-        StartCoroutine(Spawn(player.gameObject));
+        StartCoroutine(Spawn(playerController.gameObject));
     }
 }
