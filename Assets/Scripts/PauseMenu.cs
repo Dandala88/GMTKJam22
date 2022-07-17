@@ -18,10 +18,20 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     PlayerInput playerInput;
 
+    private ScoresMenu scoresMenu;
+
     private int currentSelection;
 
     private void Awake()
     {
+        scoresMenu = GetComponentInChildren<ScoresMenu>();
+        scoresMenu.gameObject.SetActive(false);
+        SelectOption();
+    }
+
+    private void OnEnable()
+    {
+        currentSelection = 0;
         SelectOption();
     }
 
@@ -47,27 +57,52 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.started)
         {
+            if (scoresMenu.gameObject.activeSelf)
+            {
+                HideShowText(true);
+                scoresMenu.gameObject.SetActive(false);
+                currentSelection = 0;
+                SelectOption();
+            }
+
             switch (currentSelection)
             {
                 case 0:
+                    Debug.Log("restart level");
+                    break;
+                case 1:
+                    HideShowText(false);
+                    scoresMenu.gameObject.SetActive(true);
+                    break;
+                case 2:
                     playerInput.SwitchCurrentActionMap("Player");
                     Time.timeScale = 1;
                     gameObject.SetActive(false);
                     break;
-                case 1:
+                case 3:
                     Time.timeScale = 1;
-                    SceneManager.LoadScene(0, LoadSceneMode.Single); 
+                    SceneManager.LoadScene(0, LoadSceneMode.Single);
                     break;
             }
         }
     }
 
+    private void HideShowText(bool show)
+    {
+        foreach (TextMeshProUGUI t in options)
+            t.enabled = show;
+        select.gameObject.SetActive(show);
+    }
+
     private void SelectOption()
     {
-        select.position = options[currentSelection].transform.position;
+        if (!scoresMenu.gameObject.activeSelf)
+        {
+            select.position = options[currentSelection].transform.position;
 
-        foreach (TextMeshProUGUI tm in options)
-            tm.color = unselectedColor;
-        options[currentSelection].color = selectedColor;
+            foreach (TextMeshProUGUI tm in options)
+                tm.color = unselectedColor;
+            options[currentSelection].color = selectedColor;
+        }
     }
 }
