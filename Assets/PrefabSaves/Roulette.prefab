@@ -51,7 +51,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d80e29739ac2fb4c92688b6aff4bdff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.861528
+      value: 8.31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d80e29739ac2fb4c92688b6aff4bdff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -85,6 +85,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2d80e29739ac2fb4c92688b6aff4bdff, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f70ae4fe5919f245b9b96f7287b65c4, type: 2}
     - target: {fileID: 919132149155446097, guid: 2d80e29739ac2fb4c92688b6aff4bdff, type: 3}
       propertyPath: m_Name
       value: Roulette4
@@ -147,6 +151,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca475b5e75b0b72448b0d8ce8a07d4c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d48b3131c8d4ad4b8c056c88768ee41, type: 2}
     - target: {fileID: 919132149155446097, guid: ca475b5e75b0b72448b0d8ce8a07d4c4, type: 3}
       propertyPath: m_Name
       value: Roulette3
@@ -204,6 +212,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 56d8dcce585306c4b95d12f14501afb3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5cd87bedc6acb6479a71c95940bade2, type: 2}
     - target: {fileID: 919132149155446097, guid: 56d8dcce585306c4b95d12f14501afb3, type: 3}
       propertyPath: m_Name
       value: Roulette1
@@ -266,6 +278,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c29cf2b460d56094b8205f3745a87078, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a370ee884f853a74fba160d4ee57fb85, type: 2}
     - target: {fileID: 919132149155446097, guid: c29cf2b460d56094b8205f3745a87078, type: 3}
       propertyPath: m_Name
       value: Roulette wheel
