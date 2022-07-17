@@ -14,7 +14,6 @@ public class PlayingCard : MonoBehaviour
         mesh = GetComponent<MeshRenderer>();
         int randomRange = cardFaces.Count;
         int roll = Random.Range(0, randomRange);
-        Material[] materials = new Material[1];
-        materials[0] = materials[roll];
+        mesh.material = cardFaces[roll];
     }
 }
