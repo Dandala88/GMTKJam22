@@ -14,6 +14,7 @@ public class DirectionTracker : MonoBehaviour
     void Awake()
     {
         transform.position = moving.transform.position;
+        previousPosition = moving.transform.position;
     }
 
     void FixedUpdate()
