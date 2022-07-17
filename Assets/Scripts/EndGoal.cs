@@ -5,9 +5,14 @@ using UnityEngine;
 public class EndGoal : MonoBehaviour
 {
     [SerializeField]
+    private int level;
+    [SerializeField]
     StartGoal nextGoal;
     [SerializeField]
     private ParticleSystem ps;
+
+    public delegate void ClearedAction(int level, string score);
+    public static event ClearedAction OnCleared;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +28,10 @@ public class EndGoal : MonoBehaviour
         ParticleSystem cloneEnd = Instantiate(ps);
         cloneEnd.transform.position = other.transform.position;
         other.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+        OnCleared.Invoke(level, HUD.timer.ToString());
+        HUD.pauseTime = true;
+        HUD.ResetTime();
 
         float t = 0;
         ParticleSystem cloneStart = null;
@@ -46,6 +55,7 @@ public class EndGoal : MonoBehaviour
         }
         DeathFloor.currentGoal = nextGoal;
         other.GetComponentInChildren<MeshRenderer>().enabled = true;
+        HUD.pauseTime = false;
         Destroy(cloneStart.gameObject);
         Destroy(cloneEnd.gameObject);
 
