@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7103503649446309710}
   m_Layer: 0
-  m_Name: 4Blue
+  m_Name: 4Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4985746843175080215, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Name
-      value: Blue Chip
+      value: Red Chip
       objectReference: {fileID: 0}
     - target: {fileID: 5655183000787848109, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_RootOrder
@@ -93,7 +93,7 @@ PrefabInstance:
     - target: {fileID: 6786944595580580034, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+      objectReference: {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
 --- !u!1 &7221801653759721764 stripped
@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4985746843175080215, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Name
-      value: Blue Chip
+      value: Red Chip
       objectReference: {fileID: 0}
     - target: {fileID: 5655183000787848109, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_RootOrder
@@ -178,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 6786944595580580034, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+      objectReference: {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
 --- !u!4 &156566468196748729 stripped
@@ -214,7 +214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4985746843175080215, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Name
-      value: Blue Chip
+      value: Red Chip
       objectReference: {fileID: 0}
     - target: {fileID: 5655183000787848109, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_RootOrder
@@ -263,7 +263,7 @@ PrefabInstance:
     - target: {fileID: 6786944595580580034, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+      objectReference: {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
 --- !u!1 &1666582360629921292 stripped
@@ -299,7 +299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4985746843175080215, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Name
-      value: Blue Chip
+      value: Red Chip
       objectReference: {fileID: 0}
     - target: {fileID: 5655183000787848109, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_RootOrder
@@ -348,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 6786944595580580034, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+      objectReference: {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e1efa9bf35f4942820557cdfe17d1e, type: 3}
 --- !u!1 &1683929135234707499 stripped

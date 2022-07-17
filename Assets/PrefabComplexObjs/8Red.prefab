@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2234033335361942613}
   - component: {fileID: 1642118670585828035}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 2269398634321543794}
   - component: {fileID: 4705861586435732149}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 92304395664680282}
   - component: {fileID: 7092531042370248873}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8193253018921729218}
   m_Layer: 0
-  m_Name: 8Blue
+  m_Name: 8Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 7358506158287558958}
   - component: {fileID: 7358506158287558959}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,7 +395,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 7358506158774383356}
   - component: {fileID: 7358506158774383357}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +493,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 7358506159118544181}
   - component: {fileID: 7358506159118544182}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,7 +591,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 7358506159518861387}
   - component: {fileID: 7358506159518861388}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,7 +689,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 7789253730675405693}
   - component: {fileID: 5902720245822663190}
   m_Layer: 0
-  m_Name: Blue Chip
+  m_Name: Red Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +787,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3f2ffb35ba763f4e9fbb94aabca5ecf, type: 2}
+  - {fileID: 2100000, guid: 5380fdf1297d827409b3cecd53234020, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
