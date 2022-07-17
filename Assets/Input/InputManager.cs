@@ -63,7 +63,7 @@ public class InputManager : MonoBehaviour
     {
         if (context.started)
         {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
             controller.Jump();
 #endif
         }
