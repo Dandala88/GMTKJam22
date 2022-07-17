@@ -9,9 +9,9 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler
     private TextMeshProUGUI text;
     private ButtonGroup manager;
 
-    private void Awake()
+    public void Awake()
     {
-        outline = GetComponent<Image>();
+        outline = GetComponentInChildren<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
         manager = GetComponentInParent<ButtonGroup>();
     }
