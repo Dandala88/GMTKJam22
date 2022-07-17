@@ -26,4 +26,9 @@ public class DirectionTracker : MonoBehaviour
             previousPosition = moving.transform.position;
         }
     }
+
+    public void setForward(Vector3 direction)
+    {
+        transform.forward = direction;
+    }
 }
