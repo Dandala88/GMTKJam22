@@ -12,12 +12,19 @@ public class EndGoal : MonoBehaviour
     private ParticleSystem ps;
 
     public delegate void ClearedAction(int level, string score);
-    public static event ClearedAction OnCleared;
+    public static event ClearedAction OnCleared; 
+    private AudioSource a;
+
+    private void Awake()
+    {
+        a = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.CompareTag("Player"))
         {
+            a.PlayOneShot(a.clip);
             StartCoroutine(Spawn(other));
         }
     }
